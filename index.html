@@ -3,9 +3,9 @@
 <head>
     <!-- meta for the browser to allow for mobile first design-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Data Collector for AGOL</title>
-
+ <h1 test agagin>Test</h1>
     <!-- importing view style for mobile-->
         <style>
                 html,
@@ -18,18 +18,19 @@
                 }
             </style>
        <!-- importing the css and libraries for esri.js  -->
-    <link rel="stylesheet" href="https://js.arcgis.com/4.30/esri/themes/light/main.css" />
-    <script src="https://js.arcgis.com/4.30/"></script> 
+       <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
+       <script src="https://js.arcgis.com/4.26/"></script> 
     
     <!-- loading the modules -->
     <script>
         require(["esri/Config", "esri/Map", "esri/views/MapView"], (esriConfig, Map, MapView) => {
             //adding in the api key
-            esriConfig.apiKey = "AAPKfc7af196c6e64aac988bbf7529dccd648UR6aqr1HCuaJ5GN7OXourF3WZ9GF_b8R9-mMcrEZMHlZzpuLXHwt5iwInOA9k4J";
-            
+            // former short esriConfig.apiKey = "AAPKfc7af196c6e64aac988bbf7529dccd648UR6aqr1HCuaJ5GN7OXourF3WZ9GF_b8R9-mMcrEZMHlZzpuLXHwt5iwInOA9k4J";
+            esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurEeWBrCUPqSi8hnMSbsokZImKDKTL2eumxMlESK1TMtKFhgta7T74QGeRJzNkOJwNepI40R5CvWBIl4wT7veLzoLBZdU3fG2C8Sb-gg_aUPzHIuu8sVeUJMmVOOtHMQzN-ztvin3wPJVpiOxgyXuykbN1Ygw_WsJ1xOdlbJBZYrxCqfE_AAw_WUL1kmgHSes0wt7bctN6sUfshi0T-H3MtqBPg9iUVABrd1d2fA-7fnyokqjf0D0Zw41fSPG43jSZNxx5KuARSFg1R62dKBWYBg.AT1_qrMUPetG";
             const map = new Map({
                 basemap: "satellite"
             });
+            
             const view = new MapView({
                 container: "viewDiv", // Reference to the DOM node that will contain the view
                 map: map // References the map object
