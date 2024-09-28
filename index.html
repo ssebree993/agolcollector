@@ -7,7 +7,6 @@
     <title>Data Collector for AGOL</title>
     <link rel="icon" href="data:,">  <!--remove favicon error in chrome-->
 
-   
     <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css"/>
     <script src="https://js.arcgis.com/4.26/"></script>
 
@@ -23,22 +22,22 @@
         }
         /* Adding the css for the survey button */
         .addRecordBtn {
-        position: absolute;
-        z-index: 10;
-        top: 10px;
-        right: 10px;
-        background-color: #0079c1;
-        color: white;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 4px;
-        font-size: 14px;
-        cursor: pointer;
-        text-decoration: none;
+            position: absolute;
+            z-index: 10;
+            top: 10px;
+            right: 10px;
+            background-color: #0079c1;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
         }
 
         .addRecordBtn:hover {
-        background-color: #005a87;
+            background-color: #005a87;
         }
     </style>
     
@@ -55,9 +54,9 @@
 
             // Set the API key
             esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurEeWBrCUPqSi8hnMSbsokZImKDKTL2eumxMlESK1TMtKFhgta7T74QGeRJzNkOJwNepI40R5CvWBIl4wT7veLzoLBZdU3fG2C8Sb-gg_aUPzHIuu8sVeUJMmVOOtHMQzN-ztvin3wPJVpiOxgyXuykbN1Ygw_WsJ1xOdlbJBZYrxCqfE_AAw_WUL1kmgHSes0wt7bctN6sUfshi0T-H3MtqBPg9iUVABrd1d2fA-7fnyokqjf0D0Zw41fSPG43jSZNxx5KuARSFg1R62dKBWYBg.AT1_qrMUPetG";     
-             //
+            
             const map = new Map({
-                basemap: "streets-navigation-vector"
+                basemap: "streets-navigation-vector" // Add center and zoom on map for mobile; 
             });
 
             const view = new MapView({
@@ -66,27 +65,27 @@
             });
 
             // Create a locate button
-            const locateBtn = new Locate({
+            const locateBtn = new Locate({  
                 view: view
             });
 
             // Create featurelayer from feature service 
             const layer = new FeatureLayer({ 
-             // URL to the service 
+                // URL to the service 
                 url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_db2195796682481681ba340446c22d00_results/FeatureServer/0",
             });
              
             // Add the layer to the map
             map.add(layer);
 
-                // Add the locate widget to the top left corner of the view
+            // Add the locate widget to the top left corner of the view
             view.ui.add(locateBtn, {
                 position: "top-left", 
                 index: 1
             });
 
             // Create a search widget
-            const searchWidget = new Search({
+            const searchWidget = new Search({  //Custmize the search widget
                 view: view
             });
 
@@ -101,8 +100,7 @@
 
 </head>
 <body>
-    <a href="https://arcg.is/08Werq"target="_blank" class="addRecordBtn">Add Record</a>
-     <!--https://arcg.is/08Werq-->
+    <a href="https://arcg.is/08Werq" target="_blank" class="addRecordBtn">Add Record</a>  <!--URL is a shorter one.-->
     <div id="viewDiv"></div>
 </body>
 </html>
