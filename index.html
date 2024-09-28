@@ -7,6 +7,7 @@
     <title>Data Collector for AGOL</title>
     <link rel="icon" href="data:,">  <!--remove favicon error in chrome-->
 
+   
     <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css"/>
     <script src="https://js.arcgis.com/4.26/"></script>
 
@@ -19,6 +20,25 @@
             margin: 0;
             height: 100%;
             width: 100%;
+        }
+        /* Adding the css for the survey button */
+        .addRecordBtn {
+        position: absolute;
+        z-index: 10;
+        top: 10px;
+        right: 10px;
+        background-color: #0079c1;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        }
+
+        .addRecordBtn:hover {
+        background-color: #005a87;
         }
     </style>
     
@@ -58,7 +78,7 @@
              
             // Add the layer to the map
             map.add(layer);
-            
+
                 // Add the locate widget to the top left corner of the view
             view.ui.add(locateBtn, {
                 position: "top-left", 
@@ -81,6 +101,8 @@
 
 </head>
 <body>
+    <a href="https://arcg.is/1n11jS0"target="_blank" class="addRecordBtn">Add Record</a>
+     <!--https://arcg.is/08Werq-->
     <div id="viewDiv"></div>
 </body>
 </html>
