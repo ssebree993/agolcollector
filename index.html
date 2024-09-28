@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Data Collector for AGOL</title>
+    <link rel="icon" href="data:,">  <!--remove favicon error in chrome-->
 
-    <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
+    <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css"/>
     <script src="https://js.arcgis.com/4.26/"></script>
 
     <!-- Importing view style for mobile -->
@@ -23,18 +24,29 @@
     
     <!-- Loading the modules -->
     <script>
-        require([ "esri/Map", "esri/views/MapView" ], (Map, MapView) => {
+        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate"], function(esriConfig, Map, MapView, Locate) {
 
+            // Set the API key
+            esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurEeWBrCUPqSi8hnMSbsokZImKDKTL2eumxMlESK1TMtKFhgta7T74QGeRJzNkOJwNepI40R5CvWBIl4wT7veLzoLBZdU3fG2C8Sb-gg_aUPzHIuu8sVeUJMmVOOtHMQzN-ztvin3wPJVpiOxgyXuykbN1Ygw_WsJ1xOdlbJBZYrxCqfE_AAw_WUL1kmgHSes0wt7bctN6sUfshi0T-H3MtqBPg9iUVABrd1d2fA-7fnyokqjf0D0Zw41fSPG43jSZNxx5KuARSFg1R62dKBWYBg.AT1_qrMUPetG";     
+            
             const map = new Map({
-                basemap:"satellite"
-            })
+                basemap: "satellite"
+            });
 
             const view = new MapView({
                 container: "viewDiv", // Reference to the DOM node that will contain the view
-            map: map // References the map object
+                map: map // References the map object
             });
+            const locateBtn = new Locate({
+          view: view
+        });
 
-         });
+        // Add the locate widget to the top left corner of the view
+        view.ui.add(locateBtn, {
+          position: "top-left"
+        });
+
+        });
     </script> 
 
 </head>
