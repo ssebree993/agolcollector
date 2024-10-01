@@ -61,7 +61,9 @@
 
             const view = new MapView({
                 container: "viewDiv", // Reference to the DOM node that will contain the view
-                map: map // References the map object
+                map: map, // References the map object
+                center: [-97.95, 27.088], // Longitude, latitude Kearney, NE
+                zoom: 6 // Zoom level
             });
 
             // Create a locate button
