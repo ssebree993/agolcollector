@@ -62,13 +62,18 @@
             const view = new MapView({
                 container: "viewDiv", // Reference to the DOM node that will contain the view
                 map: map, // References the map object
-                center: [-97.95, 27.088], // Longitude, latitude Kearney, NE
+                center: [-97.95, 27.088], // S. Texas & Monterrey, Mexico
                 zoom: 6 // Zoom level
             });
 
             // Create a locate button
             const locateBtn = new Locate({  
-                view: view
+                view: view, // Attaches the Locate button to the view
+                useHeadingEnabled: false, // Don't change the orientation of the map
+                goToOverride: function(view, options) { // Use the same zoom level
+                    options.target.scale = 1500;  // Zoom level
+                    return view.goTo(options.target); // Returns the target
+                }
             });
 
             // Create featurelayer from feature service 
@@ -87,8 +92,9 @@
             });
 
             // Create a search widget
-            const searchWidget = new Search({  //Custmize the search widget
-                view: view
+            const searchWidget = new Search({  //Customize the search widget
+                view: view,
+                allPlaceholder: "Find my cat" // Placeholder text for the search box
             });
 
             // Add the search widget to the top right corner of the view
